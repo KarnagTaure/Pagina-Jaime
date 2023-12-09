@@ -1,0 +1,96 @@
+#situaciones{
+  position: absolute;  
+  right: 0px;
+  width: 25vw; /* Permite ajustar automáticamente el ancho */
+  height: auto; /* Permite ajustar automáticamente la altura */
+  top: 10vh;
+  padding: 20px; /* Agrega espacio alrededor del contenido del div */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+
+}
+#imagenEscena{
+    position: absolute;
+    /*background-image: url('elementos/materiales/materiales-app_ex_0041_pcreditos.png');*/
+    background-size: contain; /* Ajusta la imagen para cubrir todo el contenedor sin distorsionar */
+  	background-repeat: no-repeat; /* Evita que se repita la imagen en caso de que el gif sea más pequeño que el contenedor */
+  background-position: center; /* Centra la imagen dentro del contenedor */
+  max-width: 80%; /* Puedes ajustar este valor según tus necesidades */
+  max-height: 80vh; /* Puedes ajustar este valor según tus necesidades */
+  margin: auto; /* Centra el div horizontalmente */
+  width: 80vw; /* Permite ajustar automáticamente el ancho */
+  height: 80vh; /* Permite ajustar automáticamente la altura */
+  bottom: 30vh;
+  top: 30vh;
+  padding: 20px; /* Agrega espacio alrededor del contenido del div */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+#texto{
+  position: absolute;
+  height: 5vh;
+  width: 20vw;
+  background-color: red;
+  
+}
+#botonSiguiente2{
+  position: absolute;
+  background-image: url('elementos/materiales/botonSiguiente.png');
+    background-size: contain; /* Ajusta la imagen para cubrir todo el contenedor sin distorsionar */
+  	background-repeat: no-repeat; /* Evita que se repita la imagen en caso de que el gif sea más pequeño que el contenedor */
+  background-position: center; /* Centra la imagen dentro del contenedor */
+    height: 5vh;
+    width: 15vw;
+  
+    bottom: 2.5vh;
+    right: 45vw;
+  }
+#botonAnterior{
+  position: absolute;
+  background-image: url('elementos/materiales/botonAnterior.png');
+  background-size: contain; /* Ajusta la imagen para cubrir todo el contenedor sin distorsionar */
+  background-repeat: no-repeat; /* Evita que se repita la imagen en caso de que el gif sea más pequeño que el contenedor */
+  background-position: center; /* Centra la imagen dentro del contenedor */
+    height: 5vh;
+    width: 15vw;
+    
+    bottom: 2.5vh;
+    left: 20vw;
+  }
+#botonSiguiente{
+position: absolute;
+  height: 5vh;
+  width: 15vw;
+
+  bottom: 2.5vh;
+  right: 4.5vw;
+}
+#cabecero{
+    position: absolute;
+   background-image: url('elementos/materiales/materiales-app_ex_0042_cabecera.png');
+    background-size: 100% 100%; /* Ajusta la imagen para cubrir todo el contenedor sin distorsionar */
+  	background-repeat: no-repeat; /* Evita que se repita la imagen en caso de que el gif sea más pequeño que el contenedor */
+  background-position: center; /* Centra la imagen dentro del contenedor */
+  max-width: 100%; /* Puedes ajustar este valor según tus necesidades */
+  max-height: 80vh; /* Puedes ajustar este valor según tus necesidades */
+  margin: auto; /* Centra el div horizontalmente */
+  width: 100vw; /* Permite ajustar automáticamente el ancho */
+  height: 10vh; /* Permite ajustar automáticamente la altura */
+  top: 0px;
+  padding: 20px; /* Agrega espacio alrededor del contenido del div */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+.situacion{
+  width: calc(70% - 10px); /* Ancho del contenedor hijo (restar 10px para la separación) */
+  height: 5vh; /* Altura del contenedor hijo */
+  background-size: contain; /* Ajusta la imagen para cubrir todo el contenedor sin distorsionar */
+  background-repeat: no-repeat; /* Evita que se repita la imagen en caso de que el gif sea más pequeño que el contenedor */
+  background-position: center; /* Centra la imagen dentro del contenedor */
+  margin-bottom: 5px; /* Separación entre los contenedores hijos */
+ 
+  transition: transform 0.2s, background-image 0.2s;
+        
+}
+/* Escalado de boton o mouse over
+/*.situacion:hover {
+  transform: scale(1.2); /* Hace que el div sea un poco más grande al pasar el ratón por encima 
+ 
+}*/
