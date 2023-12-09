@@ -18,7 +18,7 @@
 <div id="imagenEscena" >
     
     <div id="botonSiguiente"></div>
-    <!--<div id="texto"></div>-->
+    <div id="texto"></div>
 
 </div>
 <div id="situaciones">

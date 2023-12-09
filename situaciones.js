@@ -4,8 +4,8 @@ const botonSiguiente = document.getElementById("botonSiguiente2");
 const imagenEscena = document.getElementById("imagenEscena");
 const botonAnterior = document.getElementById("botonAnterior");
 const texto = document.getElementById("texto");
-const todasLasSituaciones = document.querySelectorAll(".situacion");
 
+var nuevaImg='';
 var numMax = "";
 var situacionNumID = 1;
 var escenaNumero = 0; // Inicializa con la primera escena
@@ -26,9 +26,11 @@ function cambiarImagenAlEntrar() {
 
     // Construye la nueva URL con "_on" antes de ".png"
     const nuevaImagen = imagenOriginal.replace(".png", "_on.png");
+    
 
     // Establece la nueva imagen de fondo
     this.style.backgroundImage = nuevaImagen;
+    
   }
 }
 
@@ -47,46 +49,54 @@ function restaurarImagenAlSalir() {
     this.style.backgroundImage = imagenRestaurada;
   }
 }
-/*
+
 // Función para cambiar la imagen al hacer clic
 function cambiarImagenAlClic() {
+  // Busca el div anteriormente clicado por su clase 'clicado'
+  const anteriorBoton = document.querySelector('.clicado');
 
- 
-
-  // Obtiene el valor del atributo data-clicado
-  const clicado = this.dataset.clicado === 'true';
-  
-  
-
-  if (!clicado) {
-
-
-    var imgAnterior = nuevaImg.replace('_on.png', '.png');
-
-    const anteriorBoton= document.querySelector('.clicado');
-    
-    anteriorBoton.style.backgroundImage = imgAnterior;
-    anteriorBoton.className = 'situacion';
-
-
-    // Obtiene la URL original desde un atributo personalizado
-     const imagenOriginal = this.style.backgroundImage;
-
-    // Construye la nueva URL con "_on" antes de ".png"
-    nuevaImg = imagenOriginal.replace('.png', '.png');
-
-    this.classList.add = 'clicado';
-
-    // Establece la nueva imagen de fondo
-    this.style.backgroundImage = nuevaImg;
-
-    // Establece el atributo data-clicado a true
-    this.dataset.clicado = 'true';
+  if (anteriorBoton && anteriorBoton !== this) {
+    // Si hay un div anteriormente clicado y no es el mismo, restaura su imagen y clase
+    const imgCambiada = anteriorBoton.style.backgroundImage.replace('_on.png', '.png');
+    anteriorBoton.style.backgroundImage = imgCambiada;
+    anteriorBoton.classList.remove('clicado');
+    anteriorBoton.classList.add('situacion');
+    anteriorBoton.dataset.clicado = 'false';
   }
 
-  texto.innerHTML= this.className;
+  // Obtiene el valor del atributo data-clicado
+  const clicado = this.classList.contains('clicado');
+
+  if (!clicado) {
+    // Obtiene la URL original desde un atributo personalizado
+    const imagenOriginal = this.style.backgroundImage;
+
+    // Construye la nueva URL con "_on" antes de ".png"
+    const nuevaImg = imagenOriginal.replace('.png', '.png');
+
+    // Establece la nueva imagen de fondo y clase para el div actual
+    this.style.backgroundImage = nuevaImg;
+    // this.classList.remove('situacion');
+     this.classList.add('clicado');
+   
+
+    // Establece el atributo data-clicado a trues
+    this.dataset.clicado = 'true';
+  } else {
+    // Si ya estaba clicado, restaura la imagen y clase original
+    const imgCambiada = this.style.backgroundImage.replace('_on.png', '.png');
+    this.style.backgroundImage = imgCambiada;
+    this.classList.remove('clicado');
+    this.classList.add('situacion');
+
+    // Establece el atributo data-clicado a false
+    this.dataset.clicado = 'false';
+  }
+
+  // Actualiza el contenido de algún elemento con el ID 'texto' (deberías tener este elemento en tu HTML)
+  texto.innerHTML = this.classList.contains('clicado') ? 'Clicado' : 'No Clicado';
 }
- */
+ 
 
 // crear div de Situaciones según la cantidad que haya
 function agregarSituacion(num) {
@@ -116,7 +126,7 @@ function agregarSituacion(num) {
 
       // Agrega evento para cambiar la imagen al hacer clic
 
-      
+      nuevoDiv.addEventListener("click", cambiarImagenAlClic);
       nuevoDiv.addEventListener("click", clicEnNumeroEscena);
 
       // Agrega el nuevo div al contenedor padre
